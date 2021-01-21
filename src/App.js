@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import PokemonList from './components/PokemonList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const [pokemons, setPokemons] = useState([
+    { id: 1, name: 'Bulbasaur' },
+    { id: 4, name: 'Charmander' },
+    { id: 7, name: 'Squirtle' }
+  ]);
+  return <PokemonList pokemons={pokemons} setPokemons={setPokemons} date={Date.now()} />;
+};
 
 export default App;
