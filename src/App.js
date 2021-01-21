@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import PokemonList from './components/PokemonList';
 
 const App = () => {
-  const [pokemons, setPokemons] = useState([
-    { id: 1, name: 'Bulbasaur' },
-    { id: 4, name: 'Charmander' },
-    { id: 7, name: 'Squirtle' }
-  ]);
-  return <PokemonList pokemons={pokemons} setPokemons={setPokemons} date={Date.now()} />;
+  const [pokemons, setPokemons] = useState([]);
+  const style = { backgroundColor: 'red' };
+  return (
+    <div>
+      <PokemonList pokemons={pokemons} setPokemons={setPokemons} />
+      {/*  Return button with JSX*/}
+      <button style={style} onClick={() => console.log('Hello')}>
+        Hello
+      </button>
+      {/*  Return button withOUT JSX*/}
+      {React.createElement(
+        'button',
+        { onClick: () => console.log('Hello'), style: { backgroundColor: 'blue' } },
+        `Hello`
+      )}
+    </div>
+  );
 };
 
 export default App;
